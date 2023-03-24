@@ -12,7 +12,7 @@ node {
 
 
 	stage('Deploy') {
-		sh ("docker run -d -p 84:8080 -v /var/log/:/var/log/ ${application}:${BUILD_NUMBER}")
+		sh ("docker run -d -p 85:8080 -v /var/log/:/var/log/ ${application}:${BUILD_NUMBER}")
 		
 	}
 	
