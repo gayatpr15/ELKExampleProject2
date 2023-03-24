@@ -16,6 +16,10 @@ node {
 		
 	}
 	
+	environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-gayatpr')
+	}
+	
 	stages {
 
 		stage('Build') {
