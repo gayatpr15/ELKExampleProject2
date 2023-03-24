@@ -27,16 +27,12 @@ node {
 				sh 'docker build -t springbootapp:${BUILD_NUMBER} .'
 			
 		}
-	stage('tag') {
+		stage('tag') {
 
-				sh 'docker tag springbootapp:${BUILD_NUMBER} gayatpr15/springbootapp:${BUILD_NUMBER}
-				
-			
+					sh 'docker tag springbootapp:${BUILD_NUMBER} gayatpr15/springbootapp:${BUILD_NUMBER}
 		}
 
 		stage('Login') {
-
-				sh 'docker tag springbootapp:${BUILD_NUMBER} gayatpr15/springbootapp:${BUILD_NUMBER}
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			
 		}
