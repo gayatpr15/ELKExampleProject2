@@ -11,7 +11,7 @@ node {
 
 
 	stage('Deploy') {
-		sh ("docker run -d -p 86:8080 -v /var/log/:/var/log/ ${application}:${BUILD_NUMBER}")
+		sh ("docker run -d -p 87:8080 -v /var/log/:/var/log/ ${application}:${BUILD_NUMBER}")
 			}
 	
 	
@@ -33,7 +33,7 @@ environment {
 					sh 'docker tag springbootapp:${BUILD_NUMBER} gayatpr15/springbootapp:${BUILD_NUMBER}'
 		}
 		stage('Login123') {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR tiadha123!!$$$'
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			
 		}
 		stage('Push123') {
