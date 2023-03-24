@@ -13,8 +13,7 @@ node {
 
 	stage('Deploy') {
 		sh ("docker run -d -p 85:8080 -v /var/log/:/var/log/ ${application}:${BUILD_NUMBER}")
-		
-	}
+			}
 	
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-gayatpr')
