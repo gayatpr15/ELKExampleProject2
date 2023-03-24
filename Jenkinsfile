@@ -27,6 +27,12 @@ node {
 				sh 'docker build -t springbootapp:${BUILD_NUMBER} .'
 			
 		}
+	stage('tag') {
+
+				sh 'docker tag springbootapp:${BUILD_NUMBER} gayatpr15/springbootapp:${BUILD_NUMBER}
+				
+			
+		}
 
 		stage('Login') {
 
