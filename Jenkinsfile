@@ -32,11 +32,11 @@ environment {
 
 					sh 'docker tag springbootapp:${BUILD_NUMBER} gayatpr15/springbootapp:${BUILD_NUMBER}
 		}
-		stage('Login') {
+		stage('Login123') {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			
 		}
-		stage('Push') {
+		stage('Push123') {
 			
 				sh 'docker push gayatpr15/springbootapp:${BUILD_NUMBER}'
 			
