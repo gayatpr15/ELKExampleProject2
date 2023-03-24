@@ -12,7 +12,7 @@ node {
 
 
 	stage('Deploy') {
-		sh ("docker run -d -p 83:8080 -v /var/log/:/var/log/ ${application}:${BUILD_NUMBER}")
+		sh ("docker run -d -p 84:8080 -v /var/log/:/var/log/ ${application}:${BUILD_NUMBER}")
 		
 	}
 	
@@ -25,7 +25,7 @@ node {
 		stage('Build') {
 
 			
-				sh 'docker build -t gayatpr15/${application}:${BUILD_NUMBER} .'
+				sh 'docker build -t gayatpr15/springbootapp:${BUILD_NUMBER} .'
 			
 		}
 
