@@ -20,7 +20,7 @@ node {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-gayatpr')
 	}
 	
-	stages {
+	
 
 		stage('Build') {
 
@@ -42,7 +42,7 @@ node {
 				sh 'docker push gayatpr15/${application}:${BUILD_NUMBER}'
 			}
 		}
-	}
+	
 
 
 	
