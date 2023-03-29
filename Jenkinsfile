@@ -12,7 +12,7 @@ node {
 	}
 	
 	stage('Push image') {
-		withDockerRegistry(registry:[credentialsId: "dockerhub"]) {
+		withDockerRegistry(registry:[credentialsId: "dockerhub", url:"https://hub.docker.com/repositories/gayatpr15/"]) {
 		app.push()
 		app.push("latest")
 		}
