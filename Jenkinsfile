@@ -11,13 +11,7 @@ node {
 		app = docker.build("${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
 	}
 	
-	stage('Push image') {
-		withDockerRegistry(registry:[credentialsId: "dockerHub", url:"https://index.docker.io/gayatpr15"]) {
-		app.push()
-		app.push("latest")
-		}
-	}
-
+	
 
 	stage('Deploy') {
 		sh ("docker run -d -p 81:8080 -v /var/log/:/var/log/ ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
