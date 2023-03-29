@@ -1,6 +1,8 @@
+
 node {
 	def application = "springbootapp"
 	
+
 	stage('Clone repository') {
 		checkout scm
 	}
@@ -11,37 +13,10 @@ node {
 
 
 	stage('Deploy') {
-		sh ("docker run -d -p 87:8080 -v /var/log/:/var/log/ ${application}:${BUILD_NUMBER}")
-			}
-	
-	
-	
-environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-gayatpr')
+		sh ("docker run -d -p 81:8080 -v /var/log/:/var/log/ ${application}:${BUILD_NUMBER}")
+		
 	}
-	
-	
-
-		stage('Build') {
-
-			
-				sh 'docker build -t springbootapp:${BUILD_NUMBER} .'
-			
-		}
-		stage('tag') {
-
-					sh 'docker tag springbootapp:${BUILD_NUMBER} gayatpr15/springbootapp:${BUILD_NUMBER}'
-		}
-		stage('Login12') {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			
-		}
-		stage('Push123') {
-			
-				sh 'docker push gayatpr15/springbootapp:${BUILD_NUMBER}'
-			
-		}
-
 
 	
 }
+
